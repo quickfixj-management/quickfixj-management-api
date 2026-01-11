@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package quickfixj.management.v1;
+
+option java_multiple_files = true;
+option java_package = "com.quickfixj.management.v1";
+
+import 'quickfixj-management-shared.proto';
+
+service SessionManagementService {
+
+}

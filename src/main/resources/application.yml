@@ -1,1 +1,4 @@
-{}
+quarkus:
+  grpc:
+    codegen:
+      scan-for-imports: com.quickfixj:quickfixj-management-proto
