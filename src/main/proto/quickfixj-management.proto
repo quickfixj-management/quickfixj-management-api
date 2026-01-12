@@ -5,8 +5,13 @@ package quickfixj.management.v1;
 option java_multiple_files = true;
 option java_package = "com.quickfixj.management.v1";
 
+import 'google/protobuf/empty.proto';
 import 'quickfixj-management-shared.proto';
 
-service SessionManagementService {
+service ServerInstanceManagementService {
+  rpc GetAllServerInstances (google.protobuf.Empty) returns (ServerInstanceList);
+}
 
+message ServerInstanceList {
+  repeated quickfixj.management.v1.ServerInstance server_instances = 1;
 }

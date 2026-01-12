@@ -1,4 +1,33 @@
 quarkus:
+  generate-code:
+    grpc:
+      scan-for-imports: all
   grpc:
-    codegen:
-      scan-for-imports: com.quickfixj:quickfixj-management-proto
+    server:
+      use-separate-server: false
+  datasource:
+    db-kind: postgresql
+  flyway:
+    migrate-at-start: true
+
+'%dev':
+  quarkus:
+    flyway:
+      locations: db/migration,db/testdata
+
+'%test':
+  quarkus:
+    flyway:
+      locations: db/migration,db/testdata
+
+'%prod':
+  quarkus:
+    datasource:
+      username: ${DB_USERNAME}
+      password: ${DB_PASSWORD}
+      jdbc:
+        url: jdbc:postgresql://${DB_HOST}:${DB_PORT:5432}/${DB_NAME}
+      reactive:
+        url: postgresql://${DB_HOST}:${DB_PORT:5432}/${DB_NAME}
+    flyway:
+      locations: db/migration

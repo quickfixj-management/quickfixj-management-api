@@ -1,0 +1,1 @@
+insert into server_instance values (1, 'test1', 'https://test.com');
